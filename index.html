@@ -3,80 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Foto 18 Ludo</title>
+    <title>Ludovica 18 Birthday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #f8f9fa; /* Sfondo chiaro e pulito */
-            color: #212529;
-            display: block;
+            /* Sfondo chiaro con una texture leggera che ricorda la carta dell'invito */
+            background-color: #fdfbf7;
+            background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0);
+            background-size: 4px 4px;
+            color: #2c3e50;
+            font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
-            padding: 30px 20px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
         }
+
+        /* Decorazioni floreali stilizzate agli angoli (ispirate all'invito) */
+        .corner-decor {
+            position: fixed;
+            width: 130px;
+            height: 130px;
+            opacity: 0.15;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .top-right { top: 0; right: 0; transform: rotate(0deg); }
+        .bottom-left { bottom: 0; left: 0; transform: rotate(180deg); }
 
         .main-container {
-            max-width: 450px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 30px 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            padding: 40px 25px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 10;
+            border: 1px solid rgba(166, 25, 46, 0.1);
+            box-shadow: 0 10px 30px rgba(166, 25, 46, 0.03);
         }
 
-        /* Intestazione Elegante e Moderna */
-        .header {
-            margin-bottom: 35px;
-        }
-
+        /* Stile Titolo "Ludovica 18 Birthday" fedele all'invito */
         .header h1 {
-            font-size: 26px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #2c3e50;
-            font-weight: 800;
-        }
-
-        .header .line {
-            width: 50px;
-            height: 3px;
-            background-color: #3498db;
-            margin: 10px auto;
-            border-radius: 2px;
-        }
-
-        .instruction {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: #7f8c8d;
+            font-family: 'Alex Brush', cursive;
+            font-size: 52px;
+            color: #a6192e; /* Rosso Borgogna/Carminio dell'invito */
+            line-height: 1.1;
             font-weight: 400;
         }
 
-        /* Grande tasto + circolare e minimale */
+        .header .subtitle {
+            font-size: 26px;
+            font-family: 'Alex Brush', cursive;
+            color: #a6192e;
+            margin-top: -5px;
+            margin-bottom: 5px;
+        }
+
+        .header .event-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #cb997e; /* Tonalità rosa antico/pesca */
+            font-weight: 600;
+            margin-bottom: 35px;
+        }
+
+        .instruction {
+            font-size: 15px;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            color: #5c677d;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        /* Grande tasto "+" per selezione, cerchio sottile color rosa antico */
         .upload-label {
             display: inline-block;
-            width: 110px;
-            height: 110px;
-            line-height: 100px;
+            width: 100px;
+            height: 100px;
+            line-height: 92px;
             border-radius: 50%;
-            border: 2px solid #3498db;
-            font-size: 50px;
-            color: #3498db;
+            border: 1px solid #cb997e;
+            font-size: 40px;
+            color: #cb997e;
             cursor: pointer;
-            margin-bottom: 30px;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-            background-color: #f0f7fc;
+            margin-bottom: 35px;
+            background-color: rgba(251, 234, 235, 0.5);
+            transition: transform 0.2s, background-color 0.2s;
         }
 
         .upload-label:active {
-            transform: scale(0.95);
-            background-color: #e1f0fa;
+            transform: scale(0.96);
+            background-color: rgba(251, 234, 235, 0.9);
         }
 
         #file-input {
@@ -89,7 +122,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             margin-bottom: 30px;
-            max-height: 240px;
+            max-height: 220px;
             overflow-y: auto;
             padding: 5px;
         }
@@ -98,9 +131,10 @@
             position: relative;
             width: 100%;
             padding-top: 100%; 
-            background-color: #eaeded;
-            border-radius: 8px;
+            background-color: #f5f5f5;
+            border-radius: 6px;
             overflow: hidden;
+            border: 1px solid rgba(203, 153, 126, 0.2);
         }
 
         .preview-item img, .preview-item video {
@@ -112,32 +146,34 @@
             object-fit: cover;
         }
 
-        /* Pulsante Invia */
+        /* Pulsante Invia Elegante in Rosso Borgogna */
         .btn-submit {
             display: block;
             width: 100%;
             padding: 16px;
-            background-color: #3498db;
-            color: white;
+            background-color: #a6192e;
+            color: #ffffff;
             border: none;
-            border-radius: 12px;
-            font-size: 18px;
+            border-radius: 4px; /* Linee più pulite ed eleganti */
+            font-size: 14px;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             cursor: pointer;
             transition: background-color 0.2s;
         }
 
         .btn-submit:disabled {
-            background-color: #bdc3c7;
+            background-color: #d9c3c5;
+            color: #ffffff;
             cursor: not-allowed;
         }
 
         .btn-submit:not(:disabled):active {
-            background-color: #2980b9;
+            background-color: #821020;
         }
 
-        /* Schermata di caricamento e successo */
+        /* Schermata di caricamento e successo coerente con lo stile */
         .status-overlay {
             display: none;
             position: fixed;
@@ -145,7 +181,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(253, 251, 247, 0.98);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -159,13 +195,13 @@
         }
 
         .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #3498db;
+            width: 45px;
+            height: 45px;
+            border: 3px solid rgba(166, 25, 46, 0.1);
+            border-top: 3px solid #a6192e;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 25px auto;
         }
 
         @keyframes spin {
@@ -174,26 +210,42 @@
         }
 
         .success-icon {
-            font-size: 64px;
-            color: #2ecc71;
-            margin-bottom: 20px;
+            font-size: 55px;
+            color: #cb997e;
+            font-family: 'Alex Brush', cursive;
+            margin-bottom: 15px;
         }
 
         .status-text {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #a6192e;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
+    <svg class="corner-decor top-right" viewBox="0 0 100 100" fill="none" stroke="#a6192e" stroke-width="0.5">
+        <path d="M100,0 C80,10 60,5 50,25 C45,35 50,50 40,60 C30,70 10,65 0,100 M100,20 C85,25 80,40 70,45 M80,0 C75,15 60,20 55,35" />
+        <circle cx="65" cy="25" r="3" fill="#cb997e" opacity="0.5"/>
+        <circle cx="45" cy="45" r="2" fill="#cb997e" opacity="0.5"/>
+    </svg>
+    <svg class="corner-decor bottom-left" viewBox="0 0 100 100" fill="none" stroke="#a6192e" stroke-width="0.5">
+        <path d="M100,0 C80,10 60,5 50,25 C45,35 50,50 40,60 C30,70 10,65 0,100 M100,20 C85,25 80,40 70,45 M80,0 C75,15 60,20 55,35" />
+        <circle cx="65" cy="25" r="3" fill="#cb997e" opacity="0.5"/>
+        <circle cx="45" cy="45" r="2" fill="#cb997e" opacity="0.5"/>
+    </svg>
+
     <div class="main-container">
         <div class="header">
-            <h1>FOTO 18 LUDO</h1>
-            <div class="line"></div>
+            <h1>Ludovica</h1>
+            <div class="subtitle">18 Birthday</div>
+            <div class="event-tag">29 Giugno 2026</div>
         </div>
 
-        <p class="instruction">Carica qui le tue foto</p>
+        <p class="instruction">Carica qui le tue foto e video</p>
 
         <label for="file-input" class="upload-label">+</label>
         <input type="file" id="file-input" accept="image/*,video/*" multiple>
@@ -208,7 +260,7 @@
     </div>
 
     <script>
-        // Sostituisci questa stringa con il tuo URL Web App di Google Apps Script (ottenuto nella Fase 1)
+        // INSERISCI QUI IL TUO URL WEB APP CHE FINISCE IN /exec
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyrCI0o64XT8PoROUN3XxGbn70xFvfUS3I2owubS5WUNU14NXcwV87r-FYV55KqxT6b/exec";
 
         let selectedFiles = [];
@@ -229,12 +281,7 @@
 
         function renderPreviews() {
             previewContainer.innerHTML = '';
-            
-            if (selectedFiles.length > 0) {
-                submitBtn.disabled = false;
-            } else {
-                submitBtn.disabled = true;
-            }
+            submitBtn.disabled = selectedFiles.length === 0;
 
             selectedFiles.forEach((file) => {
                 const reader = new FileReader();
@@ -263,7 +310,7 @@
             statusOverlay.style.display = 'flex';
             statusBox.innerHTML = `
                 <div class="spinner"></div>
-                <div class="status-text">Caricamento in corso...<br><span id="progress-text">0/${selectedFiles.length}</span></div>
+                <div class="status-text" style="color: #2c3e50;">Invio in corso...<br><span id="progress-text" style="color: #cb997e; font-weight:600;">0/${selectedFiles.length}</span></div>
             `;
 
             for (let i = 0; i < selectedFiles.length; i++) {
@@ -280,17 +327,17 @@
 
                     await fetch(WEB_APP_URL, {
                         method: 'POST',
-                        mode: 'no-cors', 
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                         body: JSON.stringify(payload)
                     });
                 } catch (error) {
-                    console.error("Errore nell'invio del file:", file.name, error);
+                    console.error("Errore invio file:", error);
                 }
             }
 
+            // Messaggio di successo in stile elegante
             statusBox.innerHTML = `
-                <div class="success-icon">✓</div>
+                <div class="success-icon">Grazie</div>
                 <div class="status-text">Caricamento avvenuto con successo</div>
             `;
             
